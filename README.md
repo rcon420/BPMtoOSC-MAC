@@ -82,8 +82,6 @@ open dist
 ```
 The app is in `dist/`. Drag it to Applications and open it the same way as in Quick start.
 
-**11. Make a release zip** (optional). Right click the app in `dist/`, choose Compress, and upload the zip on the GitHub Releases page.
-
 ## Permissions
 
 System Settings, Privacy & Security:
