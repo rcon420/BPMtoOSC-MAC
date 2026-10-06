@@ -1,0 +1,6 @@
+numpy<2
+Pillow
+PyAudio
+python-osc
+wxPython
+pyinstaller
