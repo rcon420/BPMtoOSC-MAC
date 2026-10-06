@@ -574,6 +574,14 @@ class Main_Frame(wx.Frame):
 
         # window: opens exactly as big as the background picture, never smaller than the layout needs
         self.Bind(wx.EVT_CLOSE, self.close)
+
+        # menu bar with a Quit item: on macOS wx moves it into the app menu and gives it Cmd+Q
+        menubar = wx.MenuBar()
+        file_menu = wx.Menu()
+        file_menu.Append(wx.ID_EXIT, "Quit\tCtrl+Q")
+        menubar.Append(file_menu, "&File")
+        self.SetMenuBar(menubar)
+        self.Bind(wx.EVT_MENU, lambda e: self.close(e), id=wx.ID_EXIT)
         panel.SetSizer(root)
         try:
             need = root.CalcMin()
