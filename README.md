@@ -7,18 +7,27 @@ macOS fork of the original BPM-to-OSC (v1.2.0). Beat detection idea from [DrLuke
 ## What changed
 
 1. Runs on macOS and builds into a normal `.app`.
-2. New input "System sound": captures Spotify, YouTube and everything the Mac plays. No BlackHole needed. Macos 13 or newer.
+2. New input "System sound": captures everything the Mac plays. No BlackHole needed. Needs macOS 13 or newer.
 3. New tempo engine: follows a new song in 2 to 4 seconds instead of 30 to 40.
 4. LOCK mode: big tempo jumps (over 6 %) are only sent after they hold for 10 seconds.
 5. Target selector: Resolume, grandMA3 or Raw BPM.
 6. Bar position output: `/beat/count`, `/beat/one`, `/beat/two`.
 7. Auto reconnect after the Mac sleeps or the audio stops.
-8. Fixes: Ping works on Mac, glitchy buttons, sender thread crash, 128 BPM never shown, +1 jumping with 1/2.
+8. Fixes: Ping on Mac, glitchy buttons, sender thread crash, 128 BPM never shown, +1 jumping with 1/2.
 9. Hover help on every control.
 
-## Install
+## Quick start (ready made app)
 
-Needs a Mac with macOS 13 or newer.
+For Apple Silicon Macs with macOS 13 or newer.
+
+1. Go to the Releases page of this repository and download `BPMtoOSC RXv2 Mossad Spyware.zip`.
+2. Unzip it and drag the app into Applications.
+3. First launch: right click the app, choose Open, then Open again. The app is not signed by Apple, so a normal double click is blocked once.
+4. Allow the permissions when asked (see Permissions below).
+
+## Build from source
+
+Use this if you want to change the code or you have an Intel Mac.
 
 **1. Developer tools** (a window opens, click Install)
 ```
@@ -32,7 +41,7 @@ xcode-select --install
 brew install python@3.11 portaudio
 ```
 
-**4. Get the code.** Download the ZIP from GitHub (green Code button), unzip it, then open Terminal in that folder:
+**4. Get the code.** Download the ZIP from GitHub (green Code button), unzip it, and open Terminal in that folder. Do not keep it in the Trash or in a cloud synced folder.
 ```
 cd ~/BPMtoOSC
 ```
@@ -69,8 +78,11 @@ python main_gui.py
 ```
 chmod +x build_mac.sh
 ./build_mac.sh
+open dist
 ```
-The app appears in `dist/`. Drag it to Applications. First launch: right click, Open, Open again (it is not signed by Apple).
+The app is in `dist/`. Drag it to Applications and open it the same way as in Quick start.
+
+**11. Make a release zip** (optional). Right click the app in `dist/`, choose Compress, and upload the zip on the GitHub Releases page.
 
 ## Permissions
 
